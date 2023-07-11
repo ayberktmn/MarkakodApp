@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">Markakod App</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="e_mail">E-mail</string>
+    <string name="Anasayfa">anasayfa</string>
+    <string name="Profil">Profile</string>
+    <string name="Email_error">Geçerli bir email adresi girin.</string>
+    <string name="password_error">Geçerli bir şifre girin (en az 6 karakter).</string>
+    <string name="telephone_error">Geçerli bir telefon numarası girin (11 haneli).</string>
+    <string name="passwordagain_error">Şifreler eşleşmiyor.</string>
+    <string name="contract_error">Sözleşmeyi onaylayın.</string>
+    <string name="alert_message">Çıkış yapmak istediğinizden emin misiniz?</string>
+    <string name="positive_button">Evet</string>
+    <string name="negative_button">Hayır</string>
+    <string name="alert_title">Çıkış yap</string>
+    <string name="Sifre">Şifre</string>
+    <string name="password_forget">Şifremi Unuttum</string>
+    <string name="btn_register">Kayıt ol</string>
+    <string name="btn_login">Giriş yap</string>
+    <string name="aboutUs_lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac sapien et dui aliquet vestibulum. Aliquam fringilla ullamcorper tellus, id viverra orci. Suspendisse potenti. Duis malesuada varius ullamcorper. Morbi et leo ut eros consectetur ultrices vel vel metus. Nunc viverra, metus vel tristique finibus, ipsum mi malesuada ex, ac hendrerit ligula augue sed tortor. Pellentesque nec lorem at ligula pretium aliquet. Sed tincidunt vestibulum ante at congue. Proin ut tincidunt neque, sed varius tortor. Nullam convallis, mauris id venenatis rhoncus, tortor arcu sagittis velit, a pellentesque eros neque vitae odio. Curabitur vel odio vel purus congue finibus. Nam vitae pharetra elit. Integer imperdiet auctor elit, non commodo est faucibus ut. Suspendisse potenti. Sed a metus non felis sagittis varius.  Fusce sed purus sit amet lacus suscipit semper. Vivamus tristique imperdiet odio id tempor. Quisque et tortor in dui aliquet efficitur eu at lectus. Aliquam condimentum nulla nec tellus lobortis, eget euismod enim commodo. Sed gravida felis sit amet leo consectetur, nec hendrerit mi facilisis. Sed id purus ipsum.In ac libero id mi tincidunt feugiat. Vivamus non laoreet lacus. Nulla viverra ipsum ac metus efficitur, at pharetra nisl facilisis. Praesent at scelerisque eros. Ut id urna sapien. Morbi at risus sed dui posuere sagittis. Cras porttitor ullamcorper ante vel bibendum. Donec lacinia consequat dolor, nec volutpat libero lobortis id.</string>
+    <string name="conract_agreement">Sözleşmeler ve Anlaşmalar</string>
+    <string name="conract_Lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pulvinar, libero ut malesuada posuere, justo nunc tempor odio, sit amet ullamcorper enim libero vel mauris. In vitae magna hendrerit, viverra dui ac, laoreet lectus. Morbi varius blandit orci, in pulvinar urna suscipit eu. Ut interdum, nisl at dignissim gravida, nisi nisi sollicitudin est, nec fermentum ligula nisi nec sapien. Donec hendrerit finibus ante ut volutpat. Sed rutrum semper ipsum, vel condimentum orci tincidunt id. Mauris gravida gravida nisl, nec convallis felis aliquam non. Aliquam luctus risus in eros elementum tempus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc sit amet mauris fermentum, feugiat dui sed, consectetur leo. Nulla sed suscipit turpis. Duis a magna scelerisque, blandit eros et, eleifend sem. Proin mollis est ac augue aliquet, vel egestas est congue. Nulla facilisi. Sed tristique dolor eu mauris malesuada, eu malesuada sem ultrices. Aliquam erat volutpat. Nunc vitae vestibulum nisl. Sed faucibus eleifend quam. Cras consequat arcu vel mauris cursus, a eleifend turpis imperdiet. Aenean commodo elit sed tellus tincidunt, nec suscipit tellus volutpat. Proin pulvinar venenatis nibh ut viverra. Mauris commodo mauris at quam hendrerit faucibus. Aliquam nec eleifend leo. Ut quis dolor pharetra, eleifend mauris eget, commodo arcu. Sed consequat, sapien in faucibus pellentesque, nunc enim bibendum lectus, et ultrices lectus ipsum id massa. Nullam hendrerit justo in tempor aliquam. Fusce aliquet commodo tristique. Vestibulum non dolor mauris. Aliquam ornare nulla et ipsum vulputate, ut feugiat quam vestibulum. Sed laoreet feugiat mauris, a tempor sem interdum ac. Cras ut neque at diam bibendum lacinia. Nulla ultrices velit non felis facilisis, ac ultrices quam convallis. Nulla pellentesque odio in libero rutrum, eu hendrerit odio luctus. Aenean aliquam ultrices justo nec dictum. Phasellus eu lobortis dolor, ut cursus ligula. Nullam eu nisl ante. Curabitur et enim vitae mi tempor rutrum vel sit amet tellus. In viverra sapien non quam efficitur, at varius lacus fringilla. In fermentum, mauris ut pharetra tempor, sem enim sollicitudin leo, in dapibus ex justo non magna. Integer dictum, elit sed sagittis iaculis, velit metus suscipit ligula, sit amet malesuada est lacus in arcu. Sed ullamcorper elementum eros ut consectetur. Nullam sagittis interdum enim, et ultrices turpis pellentesque a.Nulla ultrices velit non felis facilisis, ac ultrices quam convallis. Nulla pellentesque odio in libero rutrum, eu hendrerit odio luctus. Aenean aliquam ultrices justo nec dictum. Phasellus eu lobortis dolor, ut cursus ligula. Nullam eu nisl ante. Curabitur et enim vitae mi tempor rutrum vel sit amet tellus. In viverra sapien non quam efficitur, at varius lacus fringilla. In fermentum, mauris ut pharetra tempor, sem enim sollicitudin leo, in dapibus ex justo non magna. Integer dictum, elit sed sagittis iaculis, velit metus suscipit ligula, sit amet malesuada est lacus in arcu. Sed ullamcorper elementum eros ut consectetur. Nullam sagittis interdum enim, et ultrices turpis pellentesque a.</string>
+    <string name="markakod">Marka Kod</string>
+    <string name="about_us">Hakkımızda</string>
+    <string name="settings">Ayarlar</string>
+    <string name="exit">Çıkış yap</string>
+    <string name="name">Ad</string>
+    <string name="surname">Soy ad</string>
+    <string name="password">Şifre</string>
+    <string name="telephone_number">Telefon numarası</string>
+    <string name="password_again">Şifre tekrarı</string>
+    <string name="contract_Accept">Okudum,onaylıyorum</string>
+    <string name="profil">Profil</string>
+    <string name="iletisim">İletişim</string>
+    <string name="bildirim">Bildirimler</string>
+    <string name="sifredegistir">Şifre Değiştir</string>
+
+</resources>
