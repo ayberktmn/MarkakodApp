@@ -1,6 +1,8 @@
 package com.ayberk.markakodapp.ParentFragment
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.os.Handler
 import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
@@ -9,20 +11,20 @@ import androidx.activity.addCallback
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.airbnb.lottie.LottieDrawable
 import com.ayberk.markakodapp.R
 import com.ayberk.markakodapp.databinding.FragmentLoginBinding
-import java.util.regex.Pattern
 
 class LoginFragment : Fragment() {
 
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
     private var isBackPressed = false
+    private val animationDuration = 1000L // 3 saniye
+    private var isAnimationPlayed  = false
 
-    override fun onResume() {
-        super.onResume()
 
-    }
+    @SuppressLint("RestrictedApi")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -30,16 +32,31 @@ class LoginFragment : Fragment() {
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
         val view = binding.root
 
+
+
         binding.btnLogin.setOnClickListener {
+
             performLogin()
         }
 
         binding.btnRegister.setOnClickListener {
+
             findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
         }
+        if (!isAnimationPlayed) {
+
+            setupAnim()
+            isAnimationPlayed = true
+
+        }
+
+
+
 
         return view
     }
+
+
 
     // Email'in geçerli olup olmadığını kontrol eder.
     private fun isValidEmail(email: CharSequence): Boolean {
@@ -78,43 +95,20 @@ class LoginFragment : Fragment() {
 
         if (isValid) {
             findNavController().navigate(R.id.action_loginFragment_to_mainFragment)
-
         }
     }
 
-    // Bu fonksiyon, şifrenin güçlü olup olmadığını kontrol eder.
-    private fun isStrongPassword(password: CharSequence): Boolean {
-        // En az 6 karakter uzunluğunda olmalı
-        if (password.length < 6) {
-            return false
-        }
+    private fun setupAnim() {
+        binding.animationView.setAnimation(R.raw.progressbar)
+        binding.animationView.repeatCount = LottieDrawable.INFINITE
+        binding.animationView.playAnimation()
+        binding.animationView.speed = 2.0F
 
-        // En az bir büyük harf içermeli
-        val uppercasePattern = Pattern.compile("[A-Z]")
-        if (!uppercasePattern.matcher(password).find()) {
-            return false
-        }
-
-        // En az bir küçük harf içermeli
-        val lowercasePattern = Pattern.compile("[a-z]")
-        if (!lowercasePattern.matcher(password).find()) {
-            return false
-        }
-
-        // En az bir sayı içermeli
-        val digitPattern = Pattern.compile("[0-9]")
-        if (!digitPattern.matcher(password).find()) {
-            return false
-        }
-
-        // En az bir özel karakter içermeli
-        val specialCharPattern = Pattern.compile("[!@#$%^&*()_+=|<>?{}\\[\\]~.-]")
-        if (!specialCharPattern.matcher(password).find()) {
-            return false
-        }
-        return true
+        Handler().postDelayed({
+            binding.animationView.pauseAnimation()
+            binding.animationView.visibility = View.GONE
+        }, animationDuration)
     }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

@@ -68,7 +68,7 @@ class ProfileFragment() : Fragment() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.cikis_menu, menu)
+        inflater.inflate(R.menu.settings_menu, menu)
         super.onCreateOptionsMenu(menu, inflater)
     }
 

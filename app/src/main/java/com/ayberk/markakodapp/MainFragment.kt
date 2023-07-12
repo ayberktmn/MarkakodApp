@@ -40,7 +40,7 @@ class MainFragment : Fragment() {
 
     @Deprecated("Deprecated in Java")
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.cikis_menu, menu)
+        inflater.inflate(R.menu.settings_menu, menu)
         super.onCreateOptionsMenu(menu, inflater)
     }
 
@@ -154,9 +154,7 @@ class MainFragment : Fragment() {
                 }
             }
                 true
-
         }
-
 
         binding.bottomNavigationView.setOnItemSelectedListener {
             when (it.itemId) {
