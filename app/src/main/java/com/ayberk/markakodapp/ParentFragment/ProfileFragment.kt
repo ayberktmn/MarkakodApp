@@ -1,5 +1,6 @@
 package com.ayberk.markakodapp.ParentFragment
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.graphics.Color
 import android.os.Bundle
@@ -83,14 +84,17 @@ class ProfileFragment() : Fragment() {
     }
 
 
+    @SuppressLint("SuspiciousIndentation")
     private fun showLogoutDialog() {
         val alertDialogBuilder = AlertDialog.Builder(requireContext())
         alertDialogBuilder.setTitle(R.string.alert_title)
         alertDialogBuilder.setMessage(getString(R.string.alert_message))
         alertDialogBuilder.setPositiveButton(R.string.positive_button) { dialog, _ ->
             // Çıkış yapılacak işlemleri burada gerçekleştir
-            val action = ProfileFragmentDirections.actionProfileFragmentToSettingsFragment()
+
+            val action = ProfileFragmentDirections.actionProfileFragmentToMainActivity()
             findNavController().navigate(action)
+
         }
         alertDialogBuilder.setNegativeButton(R.string.negative_button) { dialog, _ ->
             // İptal edildiğinde yapılacak işlemleri burada gerçekleştir

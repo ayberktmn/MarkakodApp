@@ -35,5 +35,6 @@
     <string name="iletisim">İletişim</string>
     <string name="bildirim">Bildirimler</string>
     <string name="sifredegistir">Şifre Değiştir</string>
+    <string name="strong_password">Daha güçlü şifre tercih edin</string>
 
 </resources>

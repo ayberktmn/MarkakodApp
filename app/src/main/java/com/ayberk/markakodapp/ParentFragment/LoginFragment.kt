@@ -2,15 +2,14 @@ package com.ayberk.markakodapp.ParentFragment
 
 import android.os.Bundle
 import android.util.Patterns
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.addCallback
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.ayberk.markakodapp.R
 import com.ayberk.markakodapp.databinding.FragmentLoginBinding
-import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class LoginFragment : Fragment() {
 
@@ -18,6 +17,10 @@ class LoginFragment : Fragment() {
     private val binding get() = _binding!!
     private var isBackPressed = false
 
+    override fun onResume() {
+        super.onResume()
+
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

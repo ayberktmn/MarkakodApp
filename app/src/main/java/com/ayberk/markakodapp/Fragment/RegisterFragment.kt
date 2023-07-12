@@ -2,15 +2,15 @@ package com.ayberk.markakodapp.Fragment
 
 import android.os.Bundle
 import android.util.Patterns
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.ayberk.markakodapp.R
 import com.ayberk.markakodapp.databinding.FragmentRegisterBinding
-import dagger.multibindings.StringKey
+import java.util.regex.Pattern
 
 class RegisterFragment : Fragment() {
 
@@ -37,6 +37,9 @@ class RegisterFragment : Fragment() {
         binding.btnLogin2.setOnClickListener {
             findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
         }
+        binding.txtBackRegister.setOnClickListener {
+            findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
+        }
 
         return view
     }
@@ -59,6 +62,39 @@ class RegisterFragment : Fragment() {
     // Bu fonksiyon, iki şifrenin eşleşip eşleşmediğini kontrol eder.
     private fun checkPasswordMatch(password: CharSequence, passwordAgain: CharSequence): Boolean {
         return password.toString() == passwordAgain.toString()
+    }
+
+    // Bu fonksiyon, şifrenin güçlü olup olmadığını kontrol eder.
+    private fun isStrongPassword(password: CharSequence): Boolean {
+        // En az 6 karakter uzunluğunda olmalı
+        if (password.length < 6) {
+            return false
+        }
+
+        // En az bir büyük harf içermeli
+        val uppercasePattern = Pattern.compile("[A-Z]")
+        if (!uppercasePattern.matcher(password).find()) {
+            return false
+        }
+
+        // En az bir küçük harf içermeli
+        val lowercasePattern = Pattern.compile("[a-z]")
+        if (!lowercasePattern.matcher(password).find()) {
+            return false
+        }
+
+        // En az bir sayı içermeli
+        val digitPattern = Pattern.compile("[0-9]")
+        if (!digitPattern.matcher(password).find()) {
+            return false
+        }
+
+        // En az bir özel karakter içermeli
+        val specialCharPattern = Pattern.compile("[!@#$%^&*()_+=|<>?{}\\[\\]~.-]")
+        if (!specialCharPattern.matcher(password).find()) {
+            return false
+        }
+        return true
     }
 
 
@@ -84,6 +120,12 @@ class RegisterFragment : Fragment() {
             isValid = false
         }
 
+        // Güçlü şifre kontrolü
+        if (!isStrongPassword(password)) {
+            binding.editTextPassword.error = getString(R.string.strong_password)
+            isValid = false
+        }
+
         // Telefon numarası kontrolü
         if (!isValidPhoneNumber(phoneNumber)) {
             binding.editTextPhoneNumber.error = getString(R.string.telephone_error)
@@ -95,7 +137,8 @@ class RegisterFragment : Fragment() {
             binding.editTextPasswordAgain.error = getString(R.string.passwordagain_error)
             isValid = false
         }
-        // sözleşme onay kontrolü
+
+        // Sözleşme onay kontrolü
         if (!checkbox.isChecked) {
             Toast.makeText(requireContext(), getString(R.string.contract_error), Toast.LENGTH_SHORT).show()
             isValid = false
