@@ -6,10 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.addCallback
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.ayberk.markakodapp.R
 import com.ayberk.markakodapp.databinding.FragmentLoginBinding
+import java.util.regex.Pattern
 
 class LoginFragment : Fragment() {
 
@@ -58,14 +60,20 @@ class LoginFragment : Fragment() {
 
         // Email kontrolü
         if (!isValidEmail(email)) {
+            binding.textInputEmail.boxStrokeColor = ContextCompat.getColor(requireContext(), R.color.Red)
             binding.editTextemail.error = getString(R.string.Email_error)
             isValid = false
+        }  else {
+            binding.textInputEmail.boxStrokeColor = ContextCompat.getColor(requireContext(), R.color.yellow)
         }
 
         // Şifre kontrolü
         if (!isValidPassword(password)) {
+            binding.textInputPassword.boxStrokeColor = ContextCompat.getColor(requireContext(), R.color.Red)
             binding.editTextsifre.error =getString(R.string.password_error)
             isValid = false
+        } else {
+            binding.textInputPassword.boxStrokeColor = ContextCompat.getColor(requireContext(), R.color.yellow)
         }
 
         if (isValid) {
@@ -73,6 +81,40 @@ class LoginFragment : Fragment() {
 
         }
     }
+
+    // Bu fonksiyon, şifrenin güçlü olup olmadığını kontrol eder.
+    private fun isStrongPassword(password: CharSequence): Boolean {
+        // En az 6 karakter uzunluğunda olmalı
+        if (password.length < 6) {
+            return false
+        }
+
+        // En az bir büyük harf içermeli
+        val uppercasePattern = Pattern.compile("[A-Z]")
+        if (!uppercasePattern.matcher(password).find()) {
+            return false
+        }
+
+        // En az bir küçük harf içermeli
+        val lowercasePattern = Pattern.compile("[a-z]")
+        if (!lowercasePattern.matcher(password).find()) {
+            return false
+        }
+
+        // En az bir sayı içermeli
+        val digitPattern = Pattern.compile("[0-9]")
+        if (!digitPattern.matcher(password).find()) {
+            return false
+        }
+
+        // En az bir özel karakter içermeli
+        val specialCharPattern = Pattern.compile("[!@#$%^&*()_+=|<>?{}\\[\\]~.-]")
+        if (!specialCharPattern.matcher(password).find()) {
+            return false
+        }
+        return true
+    }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

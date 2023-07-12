@@ -36,5 +36,6 @@
     <string name="bildirim">Bildirimler</string>
     <string name="sifredegistir">Şifre Değiştir</string>
     <string name="strong_password">Daha güçlü şifre tercih edin</string>
+    <string name="name_error">Özel karakter kullanılmaz</string>
 
 </resources>

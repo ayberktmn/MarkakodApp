@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.ayberk.markakodapp.R
@@ -14,12 +15,8 @@ import java.util.regex.Pattern
 
 class RegisterFragment : Fragment() {
 
-    private var _binding : FragmentRegisterBinding? = null
+    private var _binding: FragmentRegisterBinding? = null
     private val binding get() = _binding!!
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,6 +42,12 @@ class RegisterFragment : Fragment() {
     }
 
     // Bu fonksiyon, email'in geçerli olup olmadığını kontrol eder.
+
+    private fun isValidName(name: CharSequence): Boolean {
+        // İsim sadece harf ve boşluk karakteri içermeli
+        val namePattern = Pattern.compile("^[a-zA-Z\\s]+$")
+        return namePattern.matcher(name).matches()
+    }
     private fun isValidEmail(email: CharSequence): Boolean {
         return Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
@@ -97,9 +100,9 @@ class RegisterFragment : Fragment() {
         return true
     }
 
-
     // Bu fonksiyon, kayıt butonuna tıklandığında çağrılır.
     private fun performRegister() {
+        val name = binding.editTextName.text.toString()
         val email = binding.editTextEmail.text.toString()
         val password = binding.editTextPassword.text.toString()
         val passwordAgain = binding.editTextPasswordAgain.text.toString()
@@ -108,34 +111,58 @@ class RegisterFragment : Fragment() {
 
         var isValid = true
 
+
+        if (!isValidName(name)) {
+            binding.editTextName.error = getString(R.string.name_error)
+            binding.textInputName.boxStrokeColor = ContextCompat.getColor(requireContext(), R.color.Red)
+            isValid = false
+        } else {
+            binding.textInputName.boxStrokeColor = ContextCompat.getColor(requireContext(), R.color.yellow)
+        }
+
         // Email kontrolü
         if (!isValidEmail(email)) {
             binding.editTextEmail.error = getString(R.string.Email_error)
+            binding.textInputEmail.boxStrokeColor = ContextCompat.getColor(requireContext(), R.color.Red)
             isValid = false
+        }else {
+            binding.textInputEmail.boxStrokeColor = ContextCompat.getColor(requireContext(), R.color.yellow)
         }
 
         // Şifre kontrolü
         if (!isValidPassword(password)) {
+            binding.textInputPasswordRegister.boxStrokeColor = ContextCompat.getColor(requireContext(), R.color.Red)
             binding.editTextPassword.error = getString(R.string.password_error)
             isValid = false
+        } else {
+            binding.textInputPasswordRegister.boxStrokeColor = ContextCompat.getColor(requireContext(), R.color.yellow)
         }
 
         // Güçlü şifre kontrolü
         if (!isStrongPassword(password)) {
+            binding.textInputPasswordRegister.boxStrokeColor = ContextCompat.getColor(requireContext(), R.color.Red)
             binding.editTextPassword.error = getString(R.string.strong_password)
             isValid = false
+        }  else {
+            binding.textInputPasswordRegister.boxStrokeColor = ContextCompat.getColor(requireContext(), R.color.yellow)
         }
 
         // Telefon numarası kontrolü
         if (!isValidPhoneNumber(phoneNumber)) {
+            binding.textInputTelephone.boxStrokeColor = ContextCompat.getColor(requireContext(), R.color.Red)
             binding.editTextPhoneNumber.error = getString(R.string.telephone_error)
             isValid = false
+        } else {
+            binding.textInputTelephone.boxStrokeColor = ContextCompat.getColor(requireContext(), R.color.yellow)
         }
 
         // Şifre eşleşme kontrolü
         if (!checkPasswordMatch(password, passwordAgain)) {
+            binding.textInputPasswordRegister2.boxStrokeColor = ContextCompat.getColor(requireContext(), R.color.Red)
             binding.editTextPasswordAgain.error = getString(R.string.passwordagain_error)
             isValid = false
+        } else {
+            binding.textInputPasswordRegister2.boxStrokeColor = ContextCompat.getColor(requireContext(), R.color.yellow)
         }
 
         // Sözleşme onay kontrolü
@@ -147,5 +174,9 @@ class RegisterFragment : Fragment() {
         if (isValid) {
             findNavController().navigate(R.id.action_registerFragment_to_mainFragment)
         }
+    }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
