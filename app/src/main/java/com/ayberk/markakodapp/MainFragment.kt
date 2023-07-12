@@ -7,7 +7,6 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
@@ -52,7 +51,7 @@ class MainFragment : Fragment() {
                 val bottomNav =
                     requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
                 bottomNav.selectedItemId = R.id.settings
-                Toast.makeText(requireContext(), "Ayarlar", Toast.LENGTH_SHORT).show()
+
             }
         }
         return super.onOptionsItemSelected(item)
@@ -110,13 +109,13 @@ class MainFragment : Fragment() {
         navView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
 
-                R.id.home -> {
+                R.id.Home -> {
 
                     drawerLayout.closeDrawers()
 
                     val bottomNav =
                         requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
-                    bottomNav.selectedItemId = R.id.home
+                    bottomNav.selectedItemId = R.id.Home
                     true
                 }
 
@@ -162,9 +161,11 @@ class MainFragment : Fragment() {
         binding.bottomNavigationView.setOnItemSelectedListener {
             when (it.itemId) {
 
-                R.id.home ->
+                R.id.Home ->
+
                     childFragmentManager.primaryNavigationFragment?.findNavController()
                         ?.navigate(R.id.homeFragment)
+
 
             /*    R.id.favorite -> {
                     // Profile öğesine tıklandığında yapılacak işlemler
@@ -176,6 +177,7 @@ class MainFragment : Fragment() {
                     childFragmentManager.primaryNavigationFragment?.findNavController()
                         ?.navigate(R.id.profileFragment)
 
+
                 R.id.settings -> childFragmentManager.primaryNavigationFragment?.findNavController()
                     ?.navigate(R.id.settingsFragment)
 
@@ -183,6 +185,7 @@ class MainFragment : Fragment() {
 
                 }
             }
+            drawerLayout.closeDrawers()
             true
         }
     }
@@ -192,3 +195,4 @@ class MainFragment : Fragment() {
         _binding = null
     }
 }
+

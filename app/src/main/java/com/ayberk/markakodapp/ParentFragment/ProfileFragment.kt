@@ -18,7 +18,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class ProfileFragment() : Fragment() {
 
-    private var _binding : FragmentProfileBinding? = null
+    private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
     private var isBackPressed = false
 
@@ -46,7 +46,8 @@ class ProfileFragment() : Fragment() {
 
         binding.txtPersonSettings.setOnClickListener {
             findNavController().navigate(R.id.action_profileFragment_to_settingsFragment)
-            val bottomNav = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+            val bottomNav =
+                requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
             bottomNav.selectedItemId = R.id.settings // Alt çubukta "settings" seçeneğini işaretle
         }
 
@@ -62,8 +63,9 @@ class ProfileFragment() : Fragment() {
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
             isBackPressed = true
         }
-       // setHasOptionsMenu(true)
+        // setHasOptionsMenu(true)
     }
+
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.cikis_menu, menu)
         super.onCreateOptionsMenu(menu, inflater)
@@ -102,3 +104,7 @@ class ProfileFragment() : Fragment() {
         alertDialog.show()
     }
 }
+
+
+    // İletişim kanalını tanımlama
+

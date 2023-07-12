@@ -1,13 +1,11 @@
 package com.ayberk.markakodapp.ParentFragment
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.addCallback
-import androidx.appcompat.app.AppCompatDelegate
-import androidx.navigation.fragment.findNavController
+import androidx.fragment.app.Fragment
 import com.ayberk.markakodapp.R
 import com.ayberk.markakodapp.databinding.FragmentSettingsBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
