@@ -38,9 +38,7 @@ class HomeFragment : Fragment() {
     private val viewModel: DataViewModel by viewModels()
     private lateinit var adapterr: DataAdapter
     private var isBackPressed = false
-    private var isFirstTime = true
     private lateinit var loading: LoadingDialog
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -48,6 +46,7 @@ class HomeFragment : Fragment() {
     ): View? {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val view = binding.root
+
         val recyclerView: RecyclerView = view.findViewById(R.id.recyclerView)
 
         val imageList = listOf(
@@ -69,8 +68,6 @@ class HomeFragment : Fragment() {
             "7.000 TL"
         )
 
-
-
         binding.recyclerView.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         val adapter = ImageAdapter(requireContext(), imageList, nameList, prices)
         recyclerView.adapter = adapter
@@ -91,22 +88,12 @@ class HomeFragment : Fragment() {
             isBackPressed = true
         }
 
-        if (isFirstTime) {
-            loading = LoadingDialog(this)
-            loading.startLoading()
-            isFirstTime = false
-            val handler = Handler()
-            handler.postDelayed(object : Runnable {
-
-                override fun run() {
-                    loading.dismiss()
-                }
-            }, 1500)
-
-        }else {
+        loading = LoadingDialog(this)
+        loading.startLoading()
+        val handler = Handler()
+        handler.postDelayed({
             loading.dismiss()
-            isFirstTime = false
-        }
+        }, 1000)
 
 
         val requestOptions = RequestOptions()
@@ -171,14 +158,5 @@ class HomeFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         loading.dismiss()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        isFirstTime = false
-    }
-    override fun onViewStateRestored(savedInstanceState: Bundle?) {
-        super.onViewStateRestored(savedInstanceState)
-        isFirstTime = false
     }
 }

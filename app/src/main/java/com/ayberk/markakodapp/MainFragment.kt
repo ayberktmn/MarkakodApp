@@ -79,10 +79,11 @@ class MainFragment : Fragment() {
         val navView = view.findViewById<NavigationView>(R.id.navigationView)
         binding.navigationView.inflateHeaderView(R.layout.navigaiton_baslik)
 
+
         // ActionBarDrawerToggle oluşturma
         val actionBarDrawerToggle =
             object : ActionBarDrawerToggle(
-                requireActivity(), drawerLayout, binding.toolbar, R.string.Anasayfa, R.string.Profil
+                requireActivity(), drawerLayout, binding.toolbar, R.string.Home, R.string.Profile
             )  {
 
                 override fun onDrawerOpened(drawerView: View) {
@@ -109,17 +110,17 @@ class MainFragment : Fragment() {
         navView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
 
-                R.id.Home -> {
+                R.id.drawerHome -> {
 
                     drawerLayout.closeDrawers()
 
                     val bottomNav =
                         requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
-                    bottomNav.selectedItemId = R.id.Home
+                    bottomNav.selectedItemId = R.id.home
                     true
                 }
 
-             /*   R.id.favorite -> {
+             /*   R.id.drawerFavorite -> {
 
                     drawerLayout.closeDrawers()
 
@@ -129,7 +130,7 @@ class MainFragment : Fragment() {
                     true
                 }  */
 
-                R.id.profile -> {
+                R.id.drawerProfile -> {
                     // Profile öğesine tıklandığında yapılacak işlemler
                     drawerLayout.closeDrawers()
 
@@ -139,7 +140,7 @@ class MainFragment : Fragment() {
                     true
                 }
 
-                R.id.settings -> {
+                R.id.drawerSettings -> {
                     // Settings öğesine tıklandığında yapılacak işlemler
                     drawerLayout.closeDrawers()
 
@@ -156,10 +157,11 @@ class MainFragment : Fragment() {
                 true
         }
 
+        binding.bottomNavigationView.setOnNavigationItemReselectedListener {}
         binding.bottomNavigationView.setOnItemSelectedListener {
             when (it.itemId) {
 
-                R.id.Home ->
+                R.id.home ->
 
                     childFragmentManager.primaryNavigationFragment?.findNavController()
                         ?.navigate(R.id.homeFragment)

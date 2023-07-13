@@ -4,15 +4,15 @@
 
 
     <item
-        android:id="@+id/Home"
+        android:id="@+id/home"
         android:icon="@drawable/home"
-        android:title="Anasayfa"
+        android:title="@string/Home"
         app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/profile"
         android:icon="@drawable/person"
-        android:title="Profil"
+        android:title="@string/Profile"
         app:showAsAction="ifRoom" />
 
     <item
@@ -25,12 +25,12 @@
     <item
         android:id="@+id/favorite"
         android:icon="@drawable/favorite"
-        android:title="Favori"
+        android:title="@string/favorite"
         app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/settings"
         android:icon="@drawable/settings"
-        android:title="Ayarlar"
+        android:title="@string/settings"
         app:showAsAction="ifRoom" />
 </menu>

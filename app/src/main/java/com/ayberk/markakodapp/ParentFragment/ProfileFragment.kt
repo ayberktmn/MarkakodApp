@@ -36,11 +36,14 @@ class ProfileFragment() : Fragment() {
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         val view = binding.root
 
-        view.alpha = 0f
-        view.animate()
-            .alpha(1f)
-            .setDuration(750)
-            .start()
+        view.apply {
+            alpha = 0f
+            visibility = View.VISIBLE
+            animate()
+                .alpha(1f)
+                .setDuration(750)
+                .start()
+        }
 
         binding.txtPersonContract.setOnClickListener {
             findNavController().navigate(R.id.action_profileFragment_to_personContractFragment)

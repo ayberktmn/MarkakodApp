@@ -18,5 +18,5 @@
         app:layout_constraintVertical_bias="0.451"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
-        app:lottie_rawRes="@raw/animation_loadd" />
+        app:lottie_rawRes="@raw/loadlottie" />
 </androidx.constraintlayout.widget.ConstraintLayout>

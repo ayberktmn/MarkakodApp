@@ -1,10 +1,10 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Markakod App</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="e_mail">E-mail</string>
-    <string name="Anasayfa">anasayfa</string>
-    <string name="Profil">Profile</string>
+    <string name="Home">Anasayfa</string>
+    <string name="Profile">Profil</string>
     <string name="Email_error">Geçerli bir email adresi girin.</string>
     <string name="password_error">Geçerli bir şifre girin (en az 6 karakter).</string>
     <string name="telephone_error">Geçerli bir telefon numarası girin (11 haneli).</string>
@@ -37,5 +37,7 @@
     <string name="sifredegistir">Şifre Değiştir</string>
     <string name="strong_password">Daha güçlü şifre tercih edin</string>
     <string name="name_error">Özel karakter kullanılmaz</string>
+    <string name="favorite">Favori</string>
+
 
 </resources>
