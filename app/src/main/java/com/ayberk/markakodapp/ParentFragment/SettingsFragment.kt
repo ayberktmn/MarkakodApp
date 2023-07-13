@@ -41,7 +41,7 @@ class SettingsFragment : Fragment() {
             val bottomNav = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
             bottomNav.selectedItemId = R.id.profile
         }
-        binding.imgProfile.setOnClickListener{
+        binding.animationProfile.setOnClickListener{
             val bottomNav = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
             bottomNav.selectedItemId = R.id.profile
         }
