@@ -3,6 +3,7 @@ package com.ayberk.markakodapp.ParentFragment
 import ImageAdapter
 import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.ayberk.markakodapp.Adapter.DataAdapter
+import com.ayberk.markakodapp.LoadingDialog
 import com.ayberk.markakodapp.R
 import com.ayberk.markakodapp.ViewModel.DataViewModel
 import com.ayberk.markakodapp.databinding.FragmentHomeBinding
@@ -36,6 +38,8 @@ class HomeFragment : Fragment() {
     private val viewModel: DataViewModel by viewModels()
     private lateinit var adapterr: DataAdapter
     private var isBackPressed = false
+    private var isFirstTime = true
+    private lateinit var loading: LoadingDialog
 
 
     override fun onCreateView(
@@ -45,8 +49,6 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val view = binding.root
         val recyclerView: RecyclerView = view.findViewById(R.id.recyclerView)
-
-
 
         val imageList = listOf(
             R.drawable.development,
@@ -67,6 +69,8 @@ class HomeFragment : Fragment() {
             "7.000 TL"
         )
 
+
+
         binding.recyclerView.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         val adapter = ImageAdapter(requireContext(), imageList, nameList, prices)
         recyclerView.adapter = adapter
@@ -78,17 +82,32 @@ class HomeFragment : Fragment() {
                 adapterr.setList(listOf(t))
             }
         })
-
         return view
     }
-
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
             isBackPressed = true
         }
+
+        if (isFirstTime) {
+            loading = LoadingDialog(this)
+            loading.startLoading()
+            isFirstTime = false
+            val handler = Handler()
+            handler.postDelayed(object : Runnable {
+
+                override fun run() {
+                    loading.dismiss()
+                }
+            }, 1500)
+
+        }else {
+            loading.dismiss()
+            isFirstTime = false
+        }
+
 
         val requestOptions = RequestOptions()
             .centerCrop() // Ölçekleme tipi
@@ -151,6 +170,15 @@ class HomeFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
+        loading.dismiss()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        isFirstTime = false
+    }
+    override fun onViewStateRestored(savedInstanceState: Bundle?) {
+        super.onViewStateRestored(savedInstanceState)
+        isFirstTime = false
     }
 }

@@ -45,6 +45,11 @@ class SettingsFragment : Fragment() {
             val bottomNav = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
             bottomNav.selectedItemId = R.id.profile
         }
+        view.alpha = 0f
+        view.animate()
+            .alpha(1f)
+            .setDuration(750)
+            .start()
     }
 
 }

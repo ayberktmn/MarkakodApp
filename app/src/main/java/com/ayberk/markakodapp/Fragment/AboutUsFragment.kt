@@ -1,10 +1,10 @@
 package com.ayberk.markakodapp.Fragment
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.ayberk.markakodapp.R
 import com.ayberk.markakodapp.databinding.FragmentAboutUsBinding
@@ -29,6 +29,12 @@ class AboutUsFragment : Fragment() {
         binding.txtBack.setOnClickListener {
             findNavController().navigate(R.id.action_aboutUsFragment_to_profileFragment)
         }
+
+        view.alpha = 0f
+        view.animate()
+            .alpha(1f)
+            .setDuration(500)
+            .start()
 
         return view
     }

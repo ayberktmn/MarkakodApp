@@ -25,6 +25,15 @@ class RegisterFragment : Fragment() {
         _binding = FragmentRegisterBinding.inflate(inflater, container, false)
         val view = binding.root
 
+        view.translationY = view.height.toFloat()
+        view.alpha = 0f
+        view.animate()
+            .translationY(0f)
+            .alpha(1f)
+            .setDuration(750)
+            .start()
+
+
         binding.txtContract.setOnClickListener {
             findNavController().navigate(R.id.action_registerFragment_to_contractFragment)
         }

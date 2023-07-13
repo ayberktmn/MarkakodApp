@@ -2,7 +2,6 @@ package com.ayberk.markakodapp.ParentFragment
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.os.Handler
 import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
@@ -11,7 +10,6 @@ import androidx.activity.addCallback
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.airbnb.lottie.LottieDrawable
 import com.ayberk.markakodapp.R
 import com.ayberk.markakodapp.databinding.FragmentLoginBinding
 
@@ -20,7 +18,7 @@ class LoginFragment : Fragment() {
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
     private var isBackPressed = false
-    private val animationDuration = 1000L // 3 saniye
+  //  private val animationDuration = 1000L // 3 saniye
     private var isAnimationPlayed  = false
 
 
@@ -32,7 +30,13 @@ class LoginFragment : Fragment() {
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
         val view = binding.root
 
-
+        view.translationY = view.height.toFloat()
+        view.alpha = 0f
+        view.animate()
+            .translationY(0f)
+            .alpha(1f)
+            .setDuration(1000)
+            .start()
 
         binding.btnLogin.setOnClickListener {
 
@@ -45,13 +49,10 @@ class LoginFragment : Fragment() {
         }
         if (!isAnimationPlayed) {
 
-            setupAnim()
+           // setupAnim()
             isAnimationPlayed = true
 
         }
-
-
-
 
         return view
     }
@@ -98,6 +99,7 @@ class LoginFragment : Fragment() {
         }
     }
 
+    /*
     private fun setupAnim() {
         binding.animationView.setAnimation(R.raw.progressbar)
         binding.animationView.repeatCount = LottieDrawable.INFINITE
@@ -105,10 +107,12 @@ class LoginFragment : Fragment() {
         binding.animationView.speed = 2.0F
 
         Handler().postDelayed({
-            binding.animationView.pauseAnimation()
+
+            binding.animationView.cancelAnimation()
             binding.animationView.visibility = View.GONE
+
         }, animationDuration)
-    }
+    } */
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
