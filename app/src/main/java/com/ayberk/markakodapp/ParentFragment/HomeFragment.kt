@@ -3,7 +3,6 @@ package com.ayberk.markakodapp.ParentFragment
 import ImageAdapter
 import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -38,7 +37,7 @@ class HomeFragment : Fragment() {
     private val viewModel: DataViewModel by viewModels()
     private lateinit var adapterr: DataAdapter
     private var isBackPressed = false
-    private lateinit var loading: LoadingDialog
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -88,12 +87,6 @@ class HomeFragment : Fragment() {
             isBackPressed = true
         }
 
-        loading = LoadingDialog(this)
-        loading.startLoading()
-        val handler = Handler()
-        handler.postDelayed({
-            loading.dismiss()
-        }, 1000)
 
 
         val requestOptions = RequestOptions()
@@ -157,6 +150,6 @@ class HomeFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        loading.dismiss()
+
     }
 }

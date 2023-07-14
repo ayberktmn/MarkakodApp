@@ -47,6 +47,7 @@ class ProfileFragment() : Fragment() {
 
         binding.txtPersonContract.setOnClickListener {
             findNavController().navigate(R.id.action_profileFragment_to_personContractFragment)
+
         }
 
         binding.txtAboutUs.setOnClickListener {

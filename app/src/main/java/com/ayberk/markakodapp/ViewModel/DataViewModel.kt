@@ -15,7 +15,6 @@ class DataViewModel@Inject constructor(private val repository: RetrofitRepositor
     init {
              DataList = MutableLiveData()
     }
-
     fun getDataLiveData(): MutableLiveData<Base>{
         return DataList
     }

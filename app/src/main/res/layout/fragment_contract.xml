@@ -8,8 +8,6 @@
     android:backgroundTint="#050101"
     tools:context=".Fragment.ContractFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="396dp"
@@ -62,7 +60,9 @@
         android:layout_height="57dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="28dp"
+        android:layout_marginEnd="16dp"
         android:drawableStart="@drawable/back"
+        app:layout_constraintEnd_toStartOf="@+id/textView4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

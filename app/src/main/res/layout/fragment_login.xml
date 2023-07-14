@@ -7,87 +7,70 @@
     tools:context=".ParentFragment.LoginFragment">
 
 
-    <Button
-        android:id="@+id/btnLogin"
-        android:layout_width="110dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="480dp"
-        android:hint="@string/btn_login"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:textStyle="bold"
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="310dp"
+        android:layout_height="66dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="140dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/markakod"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.744"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="114dp"
+        android:layout_height="108dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/logoapp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputPassword"
-        android:layout_width="281dp"
-        android:layout_height="105dp"
-        android:layout_marginStart="17dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="16dp"
-        android:hint="@string/Sifre"
-        app:boxCornerRadiusBottomEnd="10dp"
-        app:boxCornerRadiusBottomStart="10dp"
-        app:boxCornerRadiusTopEnd="10dp"
-        app:boxCornerRadiusTopStart="10dp"
-        app:boxStrokeWidth="0dp"
-        app:counterEnabled="true"
-        app:counterMaxLength="9"
-        app:endIconMode="password_toggle"
-        app:helperText="Zorunlu"
-        app:helperTextTextColor="#E30707"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.474"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEmail"
-        app:startIconDrawable="@drawable/password">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextsifre"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:inputType="textPassword"
-            android:maxLength="9"
-            android:minHeight="48dp"
-            android:textStyle="bold" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <TextView
-        android:id="@+id/txtForgotPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="124dp"
-        android:hint="@string/password_forget"
-        android:textColor="#757272"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.489"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textInputPassword" />
 
     <Button
         android:id="@+id/btnRegister"
         android:layout_width="110dp"
         android:layout_height="60dp"
-        android:layout_marginTop="480dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="516dp"
+        android:layout_marginEnd="16dp"
         android:hint="@string/btn_register"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/btnLogin"
-        app:layout_constraintHorizontal_bias="0.649"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.211"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="110dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="516dp"
+        android:layout_marginEnd="16dp"
+        android:hint="@string/btn_login"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.791"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputEmail"
         android:layout_width="279dp"
         android:layout_height="98dp"
-        android:layout_marginTop="196dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="232dp"
+        android:layout_marginEnd="16dp"
         android:hint="@string/e_mail"
         app:boxCornerRadiusBottomEnd="10dp"
         app:boxCornerRadiusBottomStart="10dp"
@@ -104,7 +87,6 @@
         app:startIconDrawable="@drawable/email">
 
 
-
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editTextemail"
             android:layout_width="match_parent"
@@ -114,27 +96,66 @@
             android:textStyle="bold" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="310dp"
-        android:layout_height="66dp"
-        android:layout_marginTop="120dp"
-        android:src="@drawable/markakod"
+    <TextView
+        android:id="@+id/txtForgotPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="88dp"
+        android:layout_marginEnd="16dp"
+        android:hint="@string/password_forget"
+        android:textColor="#757272"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+        app:layout_constraintTop_toTopOf="@+id/textInputPassword" />
 
-    <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="114dp"
-        android:layout_height="108dp"
-        android:layout_marginStart="141dp"
-        android:layout_marginTop="31dp"
-        android:layout_marginEnd="142dp"
-        android:src="@drawable/logoapp"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputPassword"
+        android:layout_width="283dp"
+        android:layout_height="94dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:hint="@string/Sifre"
+        app:boxCornerRadiusBottomEnd="10dp"
+        app:boxCornerRadiusBottomStart="10dp"
+        app:boxCornerRadiusTopEnd="10dp"
+        app:boxCornerRadiusTopStart="10dp"
+        app:boxStrokeWidth="0dp"
+        app:counterEnabled="true"
+        app:counterMaxLength="9"
+        app:endIconMode="password_toggle"
+        app:helperText="Zorunlu"
+        app:helperTextTextColor="#E30707"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputEmail"
+        app:startIconDrawable="@drawable/password">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextsifre"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:inputType="textPassword"
+            android:maxLength="9"
+            android:minHeight="48dp"
+            android:textStyle="bold" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="130dp"
+        android:layout_height="2dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtForgotPassword" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

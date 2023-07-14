@@ -6,7 +6,6 @@ import retrofit2.Call
 import retrofit2.http.GET
 
 interface RetrofitInstance {
-
     @GET("/todos/1")
     fun getData() : Call<Base>
 }

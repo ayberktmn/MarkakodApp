@@ -10,5 +10,6 @@
     <color name="Light_blue">#8470ff</color>
 
     <color name="Red">#E30707</color>
-    <color name="yellow"> #FFC107</color>
+    <color name="yellow">#FFC107</color>
+    <color name="gray">#ACABAB</color>
 </resources>

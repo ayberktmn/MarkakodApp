@@ -1,6 +1,8 @@
 package com.ayberk.markakodapp.Fragment
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
@@ -32,19 +34,21 @@ class RegisterFragment : Fragment() {
             .alpha(1f)
             .setDuration(750)
             .start()
-
+        binding.animationCommunication2.visibility = View.GONE
 
         binding.txtContract.setOnClickListener {
-            findNavController().navigate(R.id.action_registerFragment_to_contractFragment)
+                findNavController().navigate(R.id.action_registerFragment_to_contractFragment)
+
         }
         binding.btnRegister1.setOnClickListener {
-            performRegister()
+           performRegister()
+
         }
         binding.btnLogin2.setOnClickListener {
             findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
         }
         binding.txtBackRegister.setOnClickListener {
-            findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
+                findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
         }
 
         return view
@@ -181,7 +185,23 @@ class RegisterFragment : Fragment() {
         }
 
         if (isValid) {
-            findNavController().navigate(R.id.action_registerFragment_to_mainFragment)
+
+            val animationView = binding.animationCommunication2
+            binding.animationCommunication2.visibility = View.VISIBLE
+            // Animasyonu başlatın
+            animationView.playAnimation()
+
+            // Belirli bir süre sonra animasyonu durdurmak için Handler kullanın
+            val handler = Handler(Looper.getMainLooper())
+            val delayMillis = 2150L
+
+            handler.postDelayed({
+                // Animasyonu durdurun
+                animationView.cancelAnimation()
+                findNavController().navigate(R.id.action_registerFragment_to_mainFragment)
+            }, delayMillis)
+
+
         }
     }
     override fun onDestroyView() {

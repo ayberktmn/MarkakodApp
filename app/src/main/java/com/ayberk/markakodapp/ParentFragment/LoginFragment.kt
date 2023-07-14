@@ -2,6 +2,7 @@ package com.ayberk.markakodapp.ParentFragment
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.os.Handler
 import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import androidx.activity.addCallback
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.ayberk.markakodapp.LoadingDialog
 import com.ayberk.markakodapp.R
 import com.ayberk.markakodapp.databinding.FragmentLoginBinding
 
@@ -20,7 +22,7 @@ class LoginFragment : Fragment() {
     private var isBackPressed = false
   //  private val animationDuration = 1000L // 3 saniye
     private var isAnimationPlayed  = false
-
+    private lateinit var loading: LoadingDialog
 
     @SuppressLint("RestrictedApi")
     override fun onCreateView(
@@ -95,7 +97,14 @@ class LoginFragment : Fragment() {
         }
 
         if (isValid) {
-            findNavController().navigate(R.id.action_loginFragment_to_mainFragment)
+            loading = LoadingDialog(this)
+            loading.startLoading()
+            val handler = Handler()
+            handler.postDelayed({
+                loading.dismiss()
+                findNavController().navigate(R.id.action_loginFragment_to_mainFragment)
+            }, 2000)
+
         }
     }
 

@@ -1,6 +1,8 @@
 package com.ayberk.markakodapp.Fragment
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -31,6 +33,7 @@ class ContractFragment : Fragment() {
             //Parent fragment a dönmesini sağlar
             findNavController().navigateUp()
         }
+
 
         view.alpha = 0f
         view.animate()

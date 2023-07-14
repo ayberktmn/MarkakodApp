@@ -4,16 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ParentFragment.SettingsFragment">
+    tools:context=".ParentFragment.SettingsFragment"
+    tools:layout_editor_absoluteX="-7dp"
+    tools:layout_editor_absoluteY="1dp">
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/animation_passwordChange"
-        android:layout_width="65dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="104dp"
-        android:layout_marginTop="356dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toStartOf="@+id/textView3"
+        android:layout_width="56dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="352dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.318"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view2"
         app:lottie_autoPlay="true"
@@ -22,12 +25,13 @@
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/animation_notification"
-        android:layout_width="65dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="108dp"
+        android:layout_width="56dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="272dp"
-        android:layout_marginEnd="1dp"
-        app:layout_constraintEnd_toStartOf="@+id/textView11"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.318"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view2"
         app:lottie_autoPlay="true"
@@ -38,7 +42,9 @@
         android:id="@+id/animation_profile"
         android:layout_width="56dp"
         android:layout_height="51dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="125dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.309"
         app:layout_constraintStart_toStartOf="parent"
@@ -51,7 +57,9 @@
         android:id="@+id/animation_Communication"
         android:layout_width="56dp"
         android:layout_height="51dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.312"
         app:layout_constraintStart_toStartOf="parent"
@@ -64,7 +72,9 @@
         android:id="@+id/textView"
         android:layout_width="126dp"
         android:layout_height="49dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="72dp"
+        android:layout_marginEnd="16dp"
         android:gravity="center"
         android:text="Ayarlar"
         android:textColor="#000000"
@@ -90,13 +100,15 @@
         android:id="@+id/txtProfile"
         android:layout_width="87dp"
         android:layout_height="30dp"
-        android:layout_marginStart="1dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="136dp"
-        android:gravity="center"
+        android:gravity="center|start"
         android:text="@string/profil"
         android:textColor="#000000"
         android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/animation_profile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.558"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view2" />
 
     <View
@@ -114,14 +126,17 @@
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="143dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="16dp"
-        android:gravity="center"
+        android:layout_width="120dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:gravity="center|start"
         android:text="@string/sifredegistir"
         android:textColor="#000000"
         android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/animation_passwordChange"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.625"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view6" />
 
     <View
@@ -140,17 +155,16 @@
     <TextView
         android:id="@+id/textView12"
         android:layout_width="88dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="8dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="148dp"
-        android:gravity="center"
+        android:gravity="center|start"
         android:text="@string/iletisim"
         android:textColor="#000000"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/animation_Communication"
+        app:layout_constraintHorizontal_bias="0.56"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view" />
 
     <View
@@ -170,16 +184,17 @@
         android:id="@+id/textView11"
         android:layout_width="112dp"
 
-        android:layout_height="36dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="134dp"
-        android:gravity="center"
+        android:gravity="center|start"
         android:text="@string/bildirim"
+
         android:textColor="#000000"
         android:textSize="20sp"
-
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/animation_notification"
+        app:layout_constraintHorizontal_bias="0.607"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view3" />
 
     <View

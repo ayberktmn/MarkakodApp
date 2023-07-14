@@ -26,7 +26,6 @@ class MainFragment : Fragment() {
     private val binding get() = _binding!!
     private var isBackPressed = false
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -113,7 +112,6 @@ class MainFragment : Fragment() {
                 R.id.drawerHome -> {
 
                     drawerLayout.closeDrawers()
-
                     val bottomNav =
                         requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
                     bottomNav.selectedItemId = R.id.home
