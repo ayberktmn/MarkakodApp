@@ -30,6 +30,7 @@ class PersonContractFragment : Fragment() {
         binding.txtBack.setOnClickListener {
             findNavController().navigate(R.id.action_personContractFragment_to_profileFragment)
         }
+
         view.alpha = 0f
         view.animate()
             .alpha(1f)

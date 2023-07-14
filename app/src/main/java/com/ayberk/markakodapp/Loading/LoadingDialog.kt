@@ -1,4 +1,4 @@
-package com.ayberk.markakodapp
+package com.ayberk.markakodapp.Loading
 
 import android.app.AlertDialog
 import android.view.LayoutInflater

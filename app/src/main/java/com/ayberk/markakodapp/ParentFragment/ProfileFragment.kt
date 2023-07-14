@@ -93,10 +93,11 @@ class ProfileFragment() : Fragment() {
     }
 
 
-    @SuppressLint("SuspiciousIndentation")
+    @SuppressLint("SuspiciousIndentation", "ResourceType")
     private fun showLogoutDialog() {
         val alertDialogBuilder = AlertDialog.Builder(requireContext())
         alertDialogBuilder.setTitle(R.string.alert_title)
+
         alertDialogBuilder.setMessage(getString(R.string.alert_message))
         alertDialogBuilder.setPositiveButton(R.string.positive_button) { dialog, _ ->
             // Çıkış yapılacak işlemleri burada gerçekleştir
@@ -105,6 +106,7 @@ class ProfileFragment() : Fragment() {
             findNavController().navigate(action)
 
         }
+
         alertDialogBuilder.setNegativeButton(R.string.negative_button) { dialog, _ ->
             // İptal edildiğinde yapılacak işlemleri burada gerçekleştir
             dialog.dismiss()
@@ -113,6 +115,8 @@ class ProfileFragment() : Fragment() {
         val alertDialog = alertDialogBuilder.create()
         alertDialog.setOnShowListener {
             alertDialog.getButton(AlertDialog.BUTTON_POSITIVE)?.setTextColor(Color.RED)
+            alertDialog.getButton(AlertDialog.BUTTON_NEGATIVE)?.setTextColor(Color.BLACK)
+
         }
         alertDialog.show()
     }

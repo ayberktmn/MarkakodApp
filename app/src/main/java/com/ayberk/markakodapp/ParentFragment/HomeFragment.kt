@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.ayberk.markakodapp.Adapter.DataAdapter
-import com.ayberk.markakodapp.LoadingDialog
 import com.ayberk.markakodapp.R
 import com.ayberk.markakodapp.ViewModel.DataViewModel
 import com.ayberk.markakodapp.databinding.FragmentHomeBinding
@@ -86,8 +85,6 @@ class HomeFragment : Fragment() {
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
             isBackPressed = true
         }
-
-
 
         val requestOptions = RequestOptions()
             .centerCrop() // Ölçekleme tipi

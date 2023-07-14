@@ -11,7 +11,7 @@ import androidx.activity.addCallback
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.ayberk.markakodapp.LoadingDialog
+import com.ayberk.markakodapp.Loading.LoadingDialog
 import com.ayberk.markakodapp.R
 import com.ayberk.markakodapp.databinding.FragmentLoginBinding
 
@@ -104,7 +104,6 @@ class LoginFragment : Fragment() {
                 loading.dismiss()
                 findNavController().navigate(R.id.action_loginFragment_to_mainFragment)
             }, 2000)
-
         }
     }
 

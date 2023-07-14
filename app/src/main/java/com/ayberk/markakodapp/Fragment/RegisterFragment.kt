@@ -2,7 +2,6 @@ package com.ayberk.markakodapp.Fragment
 
 import android.os.Bundle
 import android.os.Handler
-import android.os.Looper
 import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +10,7 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.ayberk.markakodapp.Loading.LoadingRegisterCompleted
 import com.ayberk.markakodapp.R
 import com.ayberk.markakodapp.databinding.FragmentRegisterBinding
 import java.util.regex.Pattern
@@ -19,7 +19,7 @@ class RegisterFragment : Fragment() {
 
     private var _binding: FragmentRegisterBinding? = null
     private val binding get() = _binding!!
-
+    private lateinit var loading: LoadingRegisterCompleted
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -34,11 +34,10 @@ class RegisterFragment : Fragment() {
             .alpha(1f)
             .setDuration(750)
             .start()
-        binding.animationCommunication2.visibility = View.GONE
+
 
         binding.txtContract.setOnClickListener {
-                findNavController().navigate(R.id.action_registerFragment_to_contractFragment)
-
+            findNavController().navigate(R.id.action_registerFragment_to_contractFragment)
         }
         binding.btnRegister1.setOnClickListener {
            performRegister()
@@ -48,7 +47,7 @@ class RegisterFragment : Fragment() {
             findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
         }
         binding.txtBackRegister.setOnClickListener {
-                findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
+            findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
         }
 
         return view
@@ -186,20 +185,14 @@ class RegisterFragment : Fragment() {
 
         if (isValid) {
 
-            val animationView = binding.animationCommunication2
-            binding.animationCommunication2.visibility = View.VISIBLE
-            // Animasyonu başlatın
-            animationView.playAnimation()
-
-            // Belirli bir süre sonra animasyonu durdurmak için Handler kullanın
-            val handler = Handler(Looper.getMainLooper())
-            val delayMillis = 2150L
-
+            loading = LoadingRegisterCompleted(this)
+            loading.startLoading()
+            val handler = Handler()
             handler.postDelayed({
-                // Animasyonu durdurun
-                animationView.cancelAnimation()
+                loading.dismiss()
                 findNavController().navigate(R.id.action_registerFragment_to_mainFragment)
-            }, delayMillis)
+            }, 2000)
+
 
 
         }
