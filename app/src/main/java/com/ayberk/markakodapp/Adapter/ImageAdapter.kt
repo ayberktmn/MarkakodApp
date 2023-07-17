@@ -5,12 +5,18 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.airbnb.lottie.LottieAnimationView
 import com.ayberk.markakodapp.R
 import com.bumptech.glide.Glide
 
-class ImageAdapter(private val context: Context, private val images: List<Int>, private val names: List<String>, private val prices: List<String>) :
-    RecyclerView.Adapter<ImageAdapter.ImageViewHolder>() {
+class ImageAdapter(
+    private val context: Context,
+    private val images: List<Int>,
+    private val names: List<String>,
+    private val prices: List<String>
+) : RecyclerView.Adapter<ImageAdapter.ImageViewHolder>() {
+
+    private val isAnimationPlayedList = MutableList(images.size) { false }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImageViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.image_item, parent, false)
@@ -22,6 +28,25 @@ class ImageAdapter(private val context: Context, private val images: List<Int>, 
         val name = names[position]
         val price = prices[position]
         holder.bind(image, name, price)
+
+        val animationFav: LottieAnimationView = holder.itemView.findViewById(R.id.animationFavorite)
+
+        if (isAnimationPlayedList[position]) {
+            animationFav.progress = 1.0f
+            animationFav.pauseAnimation()
+
+        } else {
+            animationFav.progress = 0.0f
+
+        }
+
+        animationFav.setOnClickListener {
+            if (!isAnimationPlayedList[position]) {
+                animationFav.playAnimation()
+                isAnimationPlayedList[position] = true
+                animationFav.isClickable = false
+            }
+        }
     }
 
     override fun getItemCount(): Int {
@@ -34,7 +59,6 @@ class ImageAdapter(private val context: Context, private val images: List<Int>, 
         private val textPrice: TextView = itemView.findViewById(R.id.txtPrice)
 
         fun bind(image: Int, name: String, price: String) {
-
             Glide.with(context)
                 .load(image)
                 .into(imageView)

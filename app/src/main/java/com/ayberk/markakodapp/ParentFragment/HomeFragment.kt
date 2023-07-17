@@ -13,6 +13,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.airbnb.lottie.LottieAnimationView
 import com.ayberk.markakodapp.Adapter.DataAdapter
 import com.ayberk.markakodapp.R
 import com.ayberk.markakodapp.ViewModel.DataViewModel
@@ -36,6 +37,7 @@ class HomeFragment : Fragment() {
     private val viewModel: DataViewModel by viewModels()
     private lateinit var adapterr: DataAdapter
     private var isBackPressed = false
+    private lateinit var animationView: LottieAnimationView
 
 
     override fun onCreateView(
