@@ -40,11 +40,13 @@ class ImageAdapter(
 
         }
 
+
         animationFav.setOnClickListener {
             if (!isAnimationPlayedList[position]) {
                 animationFav.playAnimation()
                 isAnimationPlayedList[position] = true
                 animationFav.isClickable = false
+
             }
         }
     }

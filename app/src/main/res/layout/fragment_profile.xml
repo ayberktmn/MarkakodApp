@@ -12,7 +12,7 @@
         android:layout_height="0dp"
         android:layout_marginBottom="3dp"
         android:background="#B1AEAE"
-        android:backgroundTint="#C7CED1"
+        android:backgroundTint="@color/ProfileBackground"
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
@@ -50,7 +50,7 @@
                 android:layout_height="40dp"
                 android:gravity="center"
                 android:text="@string/name"
-                android:textColor="#000000"
+                android:textColor="@color/black"
                 android:textSize="16sp" />
 
             <TextView
@@ -59,7 +59,7 @@
                 android:layout_height="40dp"
                 android:gravity="center"
                 android:text="@string/surname"
-                android:textColor="#000000"
+                android:textColor="@color/black"
                 android:textSize="16sp" />
         </LinearLayout>
 
@@ -69,7 +69,7 @@
             android:layout_height="64dp"
             android:gravity="center"
             android:text="@string/e_mail"
-            android:textColor="#000000"
+            android:textColor="@color/black"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -95,7 +95,7 @@
             android:drawableEnd="@drawable/contract"
             android:gravity="center"
             android:text="@string/conract_agreement"
-            android:textColor="#000000"
+            android:textColor="@color/black"
             android:textSize="22sp" />
 
         <TextView
@@ -105,7 +105,7 @@
             android:drawableEnd="@drawable/info"
             android:gravity="center"
             android:text="Hakkımızda"
-            android:textColor="#000000"
+            android:textColor="@color/black"
             android:textSize="22sp" />
 
         <TextView
@@ -115,7 +115,7 @@
             android:drawableEnd="@drawable/settings"
             android:gravity="center"
             android:text="@string/settings"
-            android:textColor="#000000"
+            android:textColor="@color/black"
             android:textSize="22sp" />
 
         <TextView
@@ -125,7 +125,7 @@
             android:drawableEnd="@drawable/exit"
             android:gravity="center"
             android:text="@string/exit"
-            android:textColor="#000000"
+            android:textColor="@color/black"
             android:textSize="22sp" />
 
     </LinearLayout>

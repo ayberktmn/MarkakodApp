@@ -36,8 +36,10 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding!!
     private val viewModel: DataViewModel by viewModels()
     private lateinit var adapterr: DataAdapter
+    private lateinit var adapterrr: ImageAdapter
     private var isBackPressed = false
     private lateinit var animationView: LottieAnimationView
+
 
 
     override fun onCreateView(
