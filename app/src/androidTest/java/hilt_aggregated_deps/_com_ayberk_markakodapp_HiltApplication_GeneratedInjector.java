@@ -1,6 +1,6 @@
 package hilt_aggregated_deps;
 
-import javax.annotation.processing.Generated;
+
 
 import dagger.hilt.processor.internal.aggregateddeps.AggregatedDeps;
 
@@ -11,6 +11,6 @@ import dagger.hilt.processor.internal.aggregateddeps.AggregatedDeps;
     components = "dagger.hilt.components.SingletonComponent",
     entryPoints = "com.ayberk.markakodapp.HiltApplication_GeneratedInjector"
 )
-@Generated("dagger.hilt.processor.internal.aggregateddeps.AggregatedDepsGenerator")
+
 public class _com_ayberk_markakodapp_HiltApplication_GeneratedInjector {
 }
