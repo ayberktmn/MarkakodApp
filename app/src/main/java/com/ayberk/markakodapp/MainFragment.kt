@@ -122,15 +122,15 @@ class MainFragment : Fragment() {
                     true
                 }
 
-             /*   R.id.drawerFavorite -> {
+                R.id.drawerFavorite -> {
 
                     drawerLayout.closeDrawers()
 
                     val bottomNav =
                         requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
-                    bottomNav.selectedItemId = R.id.
+                    bottomNav.selectedItemId = R.id.favorite
                     true
-                }  */
+                }
 
                 R.id.drawerProfile -> {
                     // Profile öğesine tıklandığında yapılacak işlemler
@@ -169,11 +169,11 @@ class MainFragment : Fragment() {
                         ?.navigate(R.id.homeFragment)
 
 
-            /*    R.id.favorite -> {
+                R.id.favorite -> {
                     // Profile öğesine tıklandığında yapılacak işlemler
                     childFragmentManager.primaryNavigationFragment?.findNavController()
-                        ?.navigate(R.id.profileFragment)
-                } */
+                        ?.navigate(R.id.favoriteFragment)
+                }
 
                 R.id.profile ->
                     childFragmentManager.primaryNavigationFragment?.findNavController()

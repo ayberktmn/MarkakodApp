@@ -3,36 +3,39 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginStart="20dp"
+    android:layout_marginTop="10dp">
 
     <LinearLayout
         android:id="@+id/linearLayout4"
-        android:layout_width="137dp"
-        android:layout_height="185dp"
+        android:layout_width="148dp"
+        android:layout_height="179dp"
         android:layout_margin="5dp"
-        android:layout_marginStart="5dp"
-        android:foregroundGravity="bottom"
-        android:gravity="bottom"
+        android:layout_marginStart="16dp"
+        android:foregroundGravity="bottom|center"
+        android:gravity="bottom|center"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="173dp"
-            app:cardBackgroundColor="#FAF6F6"
+            android:layout_width="131dp"
+            android:layout_height="match_parent"
+            app:cardBackgroundColor="#91C6F1"
             app:cardCornerRadius="10dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/imageView2"
-                    android:layout_width="126dp"
-                    android:layout_height="97dp"
+                    android:id="@+id/imgData"
+                    android:layout_width="131dp"
+                    android:layout_height="93dp"
                     android:layout_marginStart="4dp"
                     android:layout_marginTop="4dp"
                     app:srcCompat="@drawable/ic_launcher_foreground" />
@@ -48,32 +51,24 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
                     <TextView
                         android:id="@+id/txtPrice"
                         android:layout_width="86dp"
-                        android:layout_height="34dp"
+                        android:layout_height="match_parent"
                         android:gravity="center"
                         android:text="TextView"
                         android:textColor="#000000"
                         android:textSize="16sp" />
 
-                    <com.airbnb.lottie.LottieAnimationView
-                        android:id="@+id/animationFavorite"
-                        android:layout_width="91dp"
-                        android:layout_height="match_parent"
+                    <ImageView
+                        android:id="@+id/imgLike"
+                        android:layout_width="42dp"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.498"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.451"
-                        app:lottie_autoPlay="false"
-                        app:lottie_loop="false"
-                        app:lottie_rawRes="@raw/animation_favorite_yellow" />
+                        app:srcCompat="@drawable/like" />
 
                 </LinearLayout>
 
@@ -82,5 +77,21 @@
         </androidx.cardview.widget.CardView>
 
     </LinearLayout>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animationFavorite"
+        android:layout_width="181dp"
+        android:layout_height="91dp"
+        android:layout_weight="1"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.451"
+        app:lottie_autoPlay="false"
+        app:lottie_loop="false"
+        app:lottie_rawRes="@raw/animation_favorite_yellow" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

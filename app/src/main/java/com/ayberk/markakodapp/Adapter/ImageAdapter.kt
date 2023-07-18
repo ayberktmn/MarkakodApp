@@ -4,9 +4,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import androidx.room.Room
 import com.airbnb.lottie.LottieAnimationView
+import com.ayberk.markakodapp.Models.RoomBase
 import com.ayberk.markakodapp.R
+import com.ayberk.markakodapp.Room.DataDao
+import com.ayberk.markakodapp.Room.RoomDatabase
 import com.bumptech.glide.Glide
 
 class ImageAdapter(
@@ -16,6 +21,9 @@ class ImageAdapter(
     private val prices: List<String>
 ) : RecyclerView.Adapter<ImageAdapter.ImageViewHolder>() {
 
+    private lateinit var db: RoomDatabase
+    private lateinit var dataDao: DataDao
+    private var roomBaseList: List<RoomBase> = emptyList()
     private val isAnimationPlayedList = MutableList(images.size) { false }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImageViewHolder {
@@ -30,25 +38,71 @@ class ImageAdapter(
         holder.bind(image, name, price)
 
         val animationFav: LottieAnimationView = holder.itemView.findViewById(R.id.animationFavorite)
+        val imageLike: ImageView = holder.itemView.findViewById(R.id.imgLike)
 
-        if (isAnimationPlayedList[position]) {
-            animationFav.progress = 1.0f
-            animationFav.pauseAnimation()
+        db = Room.databaseBuilder(
+            holder.itemView.context.applicationContext,
+            RoomDatabase::class.java, "RoomBase"
+        )
+            .allowMainThreadQueries()
+            .build()
+        dataDao = db.dataDao()
 
+        roomBaseList = dataDao.getAll()
+
+        val dataExists = roomBaseList.any { it.id == position }
+
+        if (dataExists) {
+            // Veritabanında veri varsa, image görüntülenecek
+            imageLike.setImageResource(R.drawable.like)
+            imageLike.isClickable = false
+            animationFav.playAnimation()
+            animationFav.visibility = View.VISIBLE
         } else {
-            animationFav.progress = 0.0f
-
+            imageLike.setImageResource(R.drawable.dislike)
+            animationFav.cancelAnimation()
+            animationFav.visibility = View.INVISIBLE
         }
 
+        imageLike.setOnClickListener {
+            val selectedData = RoomBase(
+                position,
+                images[position].toString(),
+                names[position],
+                prices[position]
+            )
 
-        animationFav.setOnClickListener {
-            if (!isAnimationPlayedList[position]) {
+            if (dataExists) {
+                // Veritabanında veri varsa, kaldıracak
+                dataDao.delete(selectedData)
+                Toast.makeText(
+                    holder.itemView.context,
+                    "Favorilerden Kaldırıldı",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else {
+                // Veritabanında veri yoksa, ekleme yapılacak
                 animationFav.playAnimation()
-                isAnimationPlayedList[position] = true
                 animationFav.isClickable = false
+                animationFav.visibility = View.VISIBLE
+                dataDao.insert(selectedData)
+                Toast.makeText(
+                    holder.itemView.context,
+                    "Favorilere Eklendi",
+                    Toast.LENGTH_SHORT
+                ).show()
 
+                // Animasyonun 1 kez çalışıp kaybolması için zamanlayıcı kullanılıyor
+                val animationDuration = animationFav.duration
+                val animationHandler = android.os.Handler()
+                animationHandler.postDelayed({
+                    animationFav.visibility = View.INVISIBLE
+                }, animationDuration)
             }
+
+            notifyDataSetChanged()
         }
+
     }
 
     override fun getItemCount(): Int {
@@ -56,7 +110,7 @@ class ImageAdapter(
     }
 
     inner class ImageViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val imageView: ImageView = itemView.findViewById(R.id.imageView2)
+        private val imageView: ImageView = itemView.findViewById(R.id.imgData)
         private val textName: TextView = itemView.findViewById(R.id.txtName)
         private val textPrice: TextView = itemView.findViewById(R.id.txtPrice)
 

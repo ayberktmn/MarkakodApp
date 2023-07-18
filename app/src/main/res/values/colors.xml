@@ -11,6 +11,7 @@
 
 
     <color name="Red">#E30707</color>
+    <color name="DataItem">#91C6F1</color>
     <color name="ProfileBackground">#C7CED1</color>
     <color name="yellow">#FFC107</color>
     <color name="gray">#ACABAB</color>

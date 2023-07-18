@@ -21,4 +21,5 @@ class DataViewModel@Inject constructor(private val repository: RetrofitRepositor
     fun  loadData(){
         repository.getData(DataList)
     }
+
 }

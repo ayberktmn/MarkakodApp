@@ -4,39 +4,35 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.ayberk.markakodapp.Models.Base
-import com.ayberk.markakodapp.R
 import com.ayberk.markakodapp.databinding.DataItemBinding
 
-class DataAdapter: RecyclerView.Adapter<DataAdapter.MyCustomHolder>() {
+class DataAdapter : RecyclerView.Adapter<DataAdapter.MyCustomHolder>() {
 
-    var liveData : List<Base>? = null
+    private var liveData: List<Base>? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyCustomHolder {
-
         val binding = DataItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return MyCustomHolder(binding)
-
     }
 
     override fun getItemCount(): Int {
-        return if (liveData != null) {
-            liveData!!.size
-        } else {
-            0
-        }
+        return liveData?.size ?: 0
     }
 
     override fun onBindViewHolder(holder: MyCustomHolder, position: Int) {
-        holder.bind(liveData!!.get(position))
+        liveData?.let { data ->
+            holder.bind(data[position])
+        }
     }
 
-    inner class MyCustomHolder(private var binding: DataItemBinding): RecyclerView.ViewHolder(binding.root) {
-        fun bind(data : Base) {
+    inner class MyCustomHolder(private var binding: DataItemBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(data: Base) {
             binding.txtdataid.text = data.id.toString().plus(". ürün:")
             binding.txtdatatitle.text = data.title
         }
     }
-    fun setList(liveData: List<Base>){
+
+    fun setList(liveData: List<Base>) {
         this.liveData = liveData
         notifyDataSetChanged()
     }
