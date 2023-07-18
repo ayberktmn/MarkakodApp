@@ -56,8 +56,7 @@ class ImageAdapter(
             // Veritabanında veri varsa, image görüntülenecek
             imageLike.setImageResource(R.drawable.like)
             imageLike.isClickable = false
-            animationFav.playAnimation()
-            animationFav.visibility = View.VISIBLE
+
         } else {
             imageLike.setImageResource(R.drawable.dislike)
             animationFav.cancelAnimation()
@@ -85,6 +84,7 @@ class ImageAdapter(
                 animationFav.playAnimation()
                 animationFav.isClickable = false
                 animationFav.visibility = View.VISIBLE
+                isAnimationPlayedList[position] = true
                 dataDao.insert(selectedData)
                 Toast.makeText(
                     holder.itemView.context,

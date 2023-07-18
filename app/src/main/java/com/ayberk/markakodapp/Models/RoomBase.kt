@@ -6,14 +6,12 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class RoomBase(
-
     @PrimaryKey
     val id: Int,
     @ColumnInfo(name = "image")
-    val image:String,
+    val image: String,
     @ColumnInfo(name = "name")
     val names: String,
     @ColumnInfo(name = "price")
-    val prices : String
-
+    val prices: String,
 )
