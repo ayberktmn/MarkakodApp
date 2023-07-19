@@ -12,14 +12,14 @@
         android:layout_height="175dp"
         android:layout_gravity="center"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="75dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="81dp"
         app:cardCornerRadius="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.092">
 
         <com.denzcoskun.imageslider.ImageSlider
             android:id="@+id/imgSlider"
@@ -32,33 +32,33 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="341dp"
-        android:layout_height="407dp"
+        android:layout_width="300dp"
+        android:layout_height="400dp"
         android:layout_gravity="center"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="316dp"
+        android:layout_marginTop="25dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="120dp"
         android:foregroundGravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.833" />
+        app:layout_constraintVertical_bias="0.598" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcylerbaseData"
-        android:layout_width="365dp"
-        android:layout_height="64dp"
+        android:layout_width="300dp"
+        android:layout_height="68dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="2dp"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+        android:layout_marginBottom="77dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView">
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView">
 
     </androidx.recyclerview.widget.RecyclerView>
 

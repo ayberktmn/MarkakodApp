@@ -13,7 +13,6 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.airbnb.lottie.LottieAnimationView
 import com.ayberk.markakodapp.Adapter.DataAdapter
 import com.ayberk.markakodapp.R
 import com.ayberk.markakodapp.ViewModel.DataViewModel
@@ -38,8 +37,6 @@ class HomeFragment : Fragment() {
     private lateinit var adapterr: DataAdapter
     private lateinit var adapterrr: ImageAdapter
     private var isBackPressed = false
-    private lateinit var animationView: LottieAnimationView
-
 
 
     override fun onCreateView(
@@ -136,6 +133,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun initRecycler() {
+
         adapterr = DataAdapter()
         binding.rcylerbaseData.adapter = adapterr
         val layoutManager = LinearLayoutManager(context)

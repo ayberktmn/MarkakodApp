@@ -4,15 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginStart="20dp"
     android:layout_marginTop="10dp">
 
     <LinearLayout
         android:id="@+id/linearLayout4"
         android:layout_width="148dp"
-        android:layout_height="179dp"
+        android:layout_height="168dp"
+        android:layout_marginTop="10dp"
         android:layout_margin="5dp"
-        android:layout_marginStart="16dp"
         android:foregroundGravity="bottom|center"
         android:gravity="bottom|center"
         android:orientation="vertical"
@@ -24,7 +23,7 @@
         <androidx.cardview.widget.CardView
             android:layout_width="131dp"
             android:layout_height="match_parent"
-            app:cardBackgroundColor="#91C6F1"
+            app:cardBackgroundColor="#DCEBF8"
             app:cardCornerRadius="10dp">
 
             <LinearLayout

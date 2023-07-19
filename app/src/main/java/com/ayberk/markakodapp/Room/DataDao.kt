@@ -9,7 +9,6 @@ import com.ayberk.markakodapp.Models.RoomBase
 @Dao
 interface DataDao {
 
-
     @Query("SELECT * FROM RoomBase")
     fun getAll(): List<RoomBase>
     @Delete
